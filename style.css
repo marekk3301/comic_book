@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -34,29 +35,31 @@ nav a:hover {
 }
 
 .wrapper {
-  overflow-x: scroll;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
   height: 80vh;
   margin-top: 10vh;
   margin-left: 45px;
-  background: #3f3f3f;
-  /* width */
-  /* Track */
-  /* Handle */
-  /* Handle on hover */
+  padding-left: 10vh;
 }
-.wrapper ::-webkit-scrollbar {
-  height: 10px;
+.wrapper .page {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  height: 95%;
 }
-.wrapper ::-webkit-scrollbar-track {
-  background: #0f0f0f;
-}
-.wrapper ::-webkit-scrollbar-thumb {
-  background: #2f2f2f;
-}
-.wrapper ::-webkit-scrollbar-thumb:hover {
-  background: #4f4f4f;
-}
-.wrapper page {
+.wrapper .page .full {
   height: 100%;
-  width: 150vw;
+}
+.wrapper .page .top,
+.wrapper .page .bottom {
+  height: 50%;
+}
+.wrapper .p1,
+.wrapper .p3,
+.wrapper .p5 {
+  align-self: flex-end;
 }
