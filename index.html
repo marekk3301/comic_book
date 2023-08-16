@@ -21,35 +21,110 @@
     </nav>
 
     <div class="wrapper">
+
         <div class="page p1">
-            <blockquote>
-                <p>And I find BIG weapon! Boom! </p>
-            </blockquote>
-            <blockquote>
-                <p>And I find BIG weapon! Boom! </p>
-            </blockquote>
+            <div class="quote q1">
+                <blockquote>
+                    <p>And I find BIG weapon! Boom!</p>
+                </blockquote>
+            </div>
+
             <img src="assets/panels/panel1.png" alt="panel 1" class="top">
+
+            <div class="quote q2">
+                <blockquote>
+                    <p>You talk. Me listen. Need... information.</p>
+                </blockquote>
+            </div>
+
             <img src="assets/panels/panel2.png" alt="panel 2" class="bottom">
+
         </div>
         <div class="page p2">
+
+            <div class="quote q3">
+                <blockquote>
+                    <p>You... pretty. Me... lucky. Dance?</p>
+                </blockquote>
+            </div>
+
+            <div class="quote q4">
+                <blockquote>
+                    <p>If you're serious about staying undercover, I might know someone who can help you with your English. A discreet <a href="#">contact</a>.</p>
+                </blockquote>
+            </div>
+
             <img src="assets/panels/panel3.png" alt="panel 3" class="full">
+
         </div>
         <div class="page p3">
+
+            <div class="quote q5">
+                <blockquote>
+                    <p>I have some <a href="#">questions</a>...</p>
+                </blockquote>
+            </div>
+
             <img src="assets/panels/panel4.png" alt="panel 4" class="full">
+
         </div>
         <div class="page p4">
+
+            <div class="quote q6">
+                <blockquote>
+                    <p>Of course, I'm here to assist. Please, ask away.</p>
+                </blockquote>
+            </div>
+
             <img src="assets/panels/panel5.png" alt="panel 5" class="full">
+
         </div>
         <div class="page p5">
+
+            <div class="caption">
+                <div class="caption__background"></div>
+                <div class="caption__content">
+                    <blockquote>
+                        <p> In the dim glow of the desk lamp, the secret agent pours over his <a href="#">English Courses</a>, determined to master the language of intrigue.</p>
+                    </blockquote>
+                </div>
+            </div>
+
             <img src="assets/panels/panel6.png" alt="panel 6" class="full">
         </div>
         <div class="page p6">
+
+            <div class="quote q7">
+                <blockquote>
+                    <p>Today, I present an innovation that will redefine our mission's success and reshape the course of history.</p>
+                </blockquote>
+            </div>
+
             <img src="assets/panels/panel7.png" alt="panel 7" class="top">
+
+            <div class="quote q8">
+                <blockquote>
+                    <p>♡ Love's language knows no bounds, for it is spoken through the eyes, felt through touch, and engraved upon the soul ♡</p>
+                </blockquote>
+            </div>
+
             <img src="assets/panels/panel8.png" alt="panel 8" class="bottom">
+
         </div>
 
 
     </div>
 </body>
+
+<script>
+    const scrollContainer = document.querySelector(".wrapper");
+
+    scrollContainer.addEventListener("wheel", (evt) => {
+        if (window.innerHeight >= 760) {
+            evt.preventDefault();
+            scrollContainer.scrollLeft += evt.deltaY;
+        }
+    });
+</script>
 
 </html>
