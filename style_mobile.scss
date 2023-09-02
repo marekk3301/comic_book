@@ -10,21 +10,20 @@ body {
 }
 
 nav {
+    display: none !important;
     background: $black;
-    padding-left: $wrapper-margin;
     position: fixed;
     display: flex;
+    flex-direction: column;
     width: 100%;
-    bottom: 0;
-    transform-origin: top left;
-    transform: rotate(-90deg) translateX(-45px);
     a {
-        padding: $nav-padding 20px;
+        padding: 20px;
         color: $white;
         text-decoration: none;
         text-transform: uppercase;
         font-family: 'Montserrat', sans-serif;
         font-weight: 500;
+        text-align: center;
     }
     .active,
     a:hover {
@@ -35,13 +34,10 @@ nav {
 
 .wrapper {
     display: flex;
+    flex-direction: column;
     gap: 20px;
-    overflow-x: auto;
-    overflow-y: hidden;
     height: $wrapper-height;
-    margin-top: $wrapper-margin;
-    margin-left: 2*$nav-width;
-    margin-right: $nav-width;
+    margin: $nav-width $margin-mobile;
     &::-webkit-scrollbar {
         margin: $nav-width;
         height: 6px;
@@ -61,7 +57,7 @@ nav {
         display: flex;
         gap: 20px;
         flex-direction: column;
-        height: 95%;
+        width: 100%;
         .full {
             height: 100%;
         }
@@ -73,25 +69,13 @@ nav {
             border: #f0f0f0 3px solid;
         }
     }
-    .p1,
-    .p3,
-    .p5 {
-        align-self: flex-end;
-        margin-bottom: 6px;
-    }
-    .p1 {
-        transform: translateY(-26px);
-    }
-    .p6 {
-        margin-right: 20px;
-    }
     .quote {
         position: absolute;
         blockquote {
-            @include speech_bubbles_text;
+            @include speech_bubbles_text-mobile;
             background: $white;
             text-align: center;
-            border-radius: 20px;
+            border-radius: 15px;
             &:after {
                 content: "";
                 position: absolute;
@@ -103,9 +87,8 @@ nav {
     .caption {
         position: absolute;
         overflow: hidden;
-        max-width: 60%;
+        width: 100%;
         z-index: 5;
-        padding-right: 30px;
         .caption__background {
             position: absolute;
             top: 0;
@@ -113,12 +96,9 @@ nav {
             width: 100%;
             height: 100%;
             background-color: $white;
-            transform: skewX(-20deg);
-            transform-origin: top;
-            z-index: -1;
         }
         .caption__content {
-            @include speech_bubbles_text;
+            @include speech_bubbles_text-mobile;
         }
     }
     p {
@@ -130,104 +110,96 @@ nav {
         }
     }
     .q1 {
-        top: 30px;
-        right: 30px;
+        top: $speech-margin-mobile;
+        right: $speech-margin-mobile;
         blockquote:after {
             transform: skewX(-15deg);
-            border-width: 30px 30px 0 0;
+            border-width: $speech-border-mobile $speech-border-mobile 0 0;
             top: 100%;
-            left: 50px;
-        }
-    }
-    .q2 {
-        bottom: 30px;
-        right: 30px;
-        max-width: 200px;
-        blockquote:after {
-            transform: skewX(15deg);
-            border-width: 0 30px 30px 0;
-            top: -30px;
-            left: 50px;
-        }
-    }
-    .q3 {
-        top: 20%;
-        left: 40%;
-        max-width: 200px;
-        transform: translateX(-50%);
-        blockquote:after {
-            transform: skewX(-15deg);
-            border-width: 30px 30px 0 0;
-            top: 100%;
-            left: 50px;
-        }
-    }
-    .q4 {
-        bottom: 10%;
-        right: 40%;
-        max-width: 200px;
-        transform: translateX(50%);
-        blockquote:after {
-            transform: skewX(-15deg);
-            border-width: 0 0 30px 30px;
-            top: -30px;
-            right: 50%;
-        }
-    }
-    .q5 {
-        bottom: 40%;
-        left: 30%;
-        max-width: 200px;
-        transform: translate(-50%, 50%);
-        blockquote:after {
-            transform: skewX(-15deg);
-            border-width: 0 0 30px 30px;
-            top: -30px;
             right: 50px;
         }
     }
-    .q6 {
-        bottom: 20%;
-        left: 40%;
+    .q2 {
+        bottom: $speech-margin-mobile;
+        right: $speech-margin-mobile;
         max-width: 200px;
-        transform: translateX(-50%);
+        blockquote:after {
+            transform: skewX(15deg);
+            border-width: 0 $speech-border-mobile $speech-border-mobile 0;
+            top: -$speech-border-mobile;
+            right: 50px;
+        }
+    }
+    .q3 {
+        top: $speech-margin-mobile;
+        left: $speech-margin-mobile;
+        max-width: 200px;
         blockquote:after {
             transform: skewX(-15deg);
-            border-width: 0 0 30px 30px;
-            top: -30px;
+            border-width: $speech-border-mobile $speech-border-mobile 0 0;
+            top: 100%;
+            right: 50px;
+        }
+    }
+    .q4 {
+        left: $speech-margin-mobile;
+        right: $speech-margin-mobile;
+        bottom: $speech-margin-mobile;
+        blockquote:after {
+            transform: skewX(15deg);
+            border-width: 0 $speech-border-mobile $speech-border-mobile 0;
+            top: -$speech-border-mobile;
+            right: 50px;
+        }
+    }
+    .q5 {
+        bottom: $speech-margin-mobile;
+        left: $speech-margin-mobile;
+        max-width: 200px;
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 0 0 $speech-border-mobile $speech-border-mobile;
+            top: -$speech-border-mobile;
+            left: 50px;
+        }
+    }
+    .q6 {
+        bottom: $speech-margin-mobile;
+        left: $speech-margin-mobile;
+        max-width: 200px;
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 0 0 $speech-border-mobile $speech-border-mobile;
+            top: -$speech-border-mobile;
             left: 50px;
         }
     }
     .q7 {
-        top: 30px;
-        left: 30px;
-        max-width: 80%;
+        bottom: 55%;
+        left: $speech-margin-mobile;
+        font-size: small;
+        max-width: 50%;
         blockquote:after {
-            transform: skewX(15deg);
-            border-width: 30px 0 0 30px;
-            top: 100%;
+            transform: skewX(-15deg);
+            border-width: 0 0 $speech-border-mobile $speech-border-mobile;
+            top: -$speech-border-mobile;
             left: 50px;
         }
     }
     .q8 {
-        bottom: 30px;
-        left: 50%;
+        bottom: $speech-margin-mobile;
+        right: $speech-margin-mobile;
+        font-size: small;
         width: 80%;
-        transform: translateX(-50%);
         blockquote:after {
-            transform: skewX(-15deg);
-            border-width: 0 0 30px 30px;
-            top: -30px;
-            left: 50px;
+            transform: skewX(15deg);
+            border-width: 0 $speech-border-mobile $speech-border-mobile 0;
+            top: -$speech-border-mobile;
+            right: 50px;
         }
     }
 }
 
 .shadow {
-    position: absolute;
-    height: 100%;
-    width: 45px;
-    top: 0;
-    right: 0;
-    box-shadow: -10px 0px 9px 3px rgba(15, 15, 15, 1);
+    display: none;
 }

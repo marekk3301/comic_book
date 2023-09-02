@@ -11,22 +11,21 @@ body {
 }
 
 nav {
+  display: none !important;
   background: #0f0f0f;
-  padding-left: 5vh;
   position: fixed;
   display: flex;
+  flex-direction: column;
   width: 100%;
-  bottom: 0;
-  transform-origin: top left;
-  transform: rotate(-90deg) translateX(-45px);
 }
 nav a {
-  padding: 13px 20px;
+  padding: 20px;
   color: #f0f0f0;
   text-decoration: none;
   text-transform: uppercase;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+  text-align: center;
 }
 nav .active,
 nav a:hover {
@@ -36,13 +35,10 @@ nav a:hover {
 
 .wrapper {
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  overflow-x: auto;
-  overflow-y: hidden;
   height: 90vh;
-  margin-top: 5vh;
-  margin-left: 90px;
-  margin-right: 45px;
+  margin: 45px 20px;
 }
 .wrapper::-webkit-scrollbar {
   margin: 45px;
@@ -63,7 +59,7 @@ nav a:hover {
   display: flex;
   gap: 20px;
   flex-direction: column;
-  height: 95%;
+  width: 100%;
 }
 .wrapper .page .full {
   height: 100%;
@@ -75,31 +71,18 @@ nav a:hover {
 .wrapper .page img {
   border: #f0f0f0 3px solid;
 }
-.wrapper .p1,
-.wrapper .p3,
-.wrapper .p5 {
-  align-self: flex-end;
-  margin-bottom: 6px;
-}
-.wrapper .p1 {
-  transform: translateY(-26px);
-}
-.wrapper .p6 {
-  margin-right: 20px;
-}
 .wrapper .quote {
   position: absolute;
 }
 .wrapper .quote blockquote {
   position: relative;
-  padding: 15px 20px 15px;
+  padding: 10px 13px 10px;
   color: #0f0f0f;
   font-family: "Kalam", cursive;
   font-weight: 700;
-  font-size: 1rem;
   background: #f0f0f0;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 15px;
 }
 .wrapper .quote blockquote:after {
   content: "";
@@ -110,9 +93,8 @@ nav a:hover {
 .wrapper .caption {
   position: absolute;
   overflow: hidden;
-  max-width: 60%;
+  width: 100%;
   z-index: 5;
-  padding-right: 30px;
 }
 .wrapper .caption .caption__background {
   position: absolute;
@@ -121,17 +103,13 @@ nav a:hover {
   width: 100%;
   height: 100%;
   background-color: #f0f0f0;
-  transform: skewX(-20deg);
-  transform-origin: top;
-  z-index: -1;
 }
 .wrapper .caption .caption__content {
   position: relative;
-  padding: 15px 20px 15px;
+  padding: 10px 13px 10px;
   color: #0f0f0f;
   font-family: "Kalam", cursive;
   font-weight: 700;
-  font-size: 1rem;
 }
 .wrapper p {
   margin: 0;
@@ -142,103 +120,95 @@ nav a:hover {
   text-decoration: none;
 }
 .wrapper .q1 {
-  top: 30px;
-  right: 30px;
+  top: 10px;
+  right: 10px;
 }
 .wrapper .q1 blockquote:after {
   transform: skewX(-15deg);
-  border-width: 30px 30px 0 0;
+  border-width: 20px 20px 0 0;
   top: 100%;
-  left: 50px;
+  right: 50px;
 }
 .wrapper .q2 {
-  bottom: 30px;
-  right: 30px;
+  bottom: 10px;
+  right: 10px;
   max-width: 200px;
 }
 .wrapper .q2 blockquote:after {
   transform: skewX(15deg);
-  border-width: 0 30px 30px 0;
-  top: -30px;
-  left: 50px;
+  border-width: 0 20px 20px 0;
+  top: -20px;
+  right: 50px;
 }
 .wrapper .q3 {
-  top: 20%;
-  left: 40%;
+  top: 10px;
+  left: 10px;
   max-width: 200px;
-  transform: translateX(-50%);
 }
 .wrapper .q3 blockquote:after {
   transform: skewX(-15deg);
-  border-width: 30px 30px 0 0;
+  border-width: 20px 20px 0 0;
   top: 100%;
-  left: 50px;
+  right: 50px;
 }
 .wrapper .q4 {
-  bottom: 10%;
-  right: 40%;
-  max-width: 200px;
-  transform: translateX(50%);
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
 }
 .wrapper .q4 blockquote:after {
-  transform: skewX(-15deg);
-  border-width: 0 0 30px 30px;
-  top: -30px;
-  right: 50%;
+  transform: skewX(15deg);
+  border-width: 0 20px 20px 0;
+  top: -20px;
+  right: 50px;
 }
 .wrapper .q5 {
-  bottom: 40%;
-  left: 30%;
+  bottom: 10px;
+  left: 10px;
   max-width: 200px;
-  transform: translate(-50%, 50%);
 }
 .wrapper .q5 blockquote:after {
   transform: skewX(-15deg);
-  border-width: 0 0 30px 30px;
-  top: -30px;
-  right: 50px;
+  border-width: 0 0 20px 20px;
+  top: -20px;
+  left: 50px;
 }
 .wrapper .q6 {
-  bottom: 20%;
-  left: 40%;
+  bottom: 10px;
+  left: 10px;
   max-width: 200px;
-  transform: translateX(-50%);
 }
 .wrapper .q6 blockquote:after {
   transform: skewX(-15deg);
-  border-width: 0 0 30px 30px;
-  top: -30px;
+  border-width: 0 0 20px 20px;
+  top: -20px;
   left: 50px;
 }
 .wrapper .q7 {
-  top: 30px;
-  left: 30px;
-  max-width: 80%;
+  bottom: 55%;
+  left: 10px;
+  font-size: small;
+  max-width: 50%;
 }
 .wrapper .q7 blockquote:after {
-  transform: skewX(15deg);
-  border-width: 30px 0 0 30px;
-  top: 100%;
+  transform: skewX(-15deg);
+  border-width: 0 0 20px 20px;
+  top: -20px;
   left: 50px;
 }
 .wrapper .q8 {
-  bottom: 30px;
-  left: 50%;
+  bottom: 10px;
+  right: 10px;
+  font-size: small;
   width: 80%;
-  transform: translateX(-50%);
 }
 .wrapper .q8 blockquote:after {
-  transform: skewX(-15deg);
-  border-width: 0 0 30px 30px;
-  top: -30px;
-  left: 50px;
+  transform: skewX(15deg);
+  border-width: 0 20px 20px 0;
+  top: -20px;
+  right: 50px;
 }
 
 .shadow {
-  position: absolute;
-  height: 100%;
-  width: 45px;
-  top: 0;
-  right: 0;
-  box-shadow: -10px 0px 9px 3px rgb(15, 15, 15);
+  display: none;
 }
