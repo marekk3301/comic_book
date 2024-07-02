@@ -11,12 +11,28 @@ body {
 }
 
 nav {
-  display: none !important;
   background: #0f0f0f;
   position: fixed;
   display: flex;
   flex-direction: column;
   width: 100%;
+  z-index: 5;
+  top: 0;
+}
+nav .nav-top {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+nav .nav-top button {
+  height: 30px;
+  width: 30px;
+  border: none;
+  background-color: transparent;
+}
+nav .nav-top button img {
+  height: 30px;
 }
 nav a {
   padding: 20px;
@@ -211,4 +227,4 @@ nav a:hover {
 
 .shadow {
   display: none;
-}
+}/*# sourceMappingURL=style_mobile.css.map */

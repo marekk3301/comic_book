@@ -10,12 +10,29 @@ body {
 }
 
 nav {
-    display: none !important;
+    // display: none !important;
     background: $black;
     position: fixed;
     display: flex;
     flex-direction: column;
     width: 100%;
+    z-index: 5;
+    top: 0;
+    .nav-top {
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        button{
+            height: 30px;
+            width: 30px;
+            border: none;
+            background-color: transparent;
+            img {
+                height: 30px;
+            }
+        }
+    }
     a {
         padding: 20px;
         color: $white;
