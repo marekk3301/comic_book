@@ -7,20 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Base</title>
 
-    <link rel="stylesheet" href="style_mobile.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <nav>
         <!-- max-height: 635px -->
         <div class="nav-top">
-            <button><img src="assets/menu_icon.svg" alt="X"></button>
+            <a><img id="logo" src="assets/logo.svg" alt="Base"></a>
+            <button onclick="toggleNav()"><img id="menuButton" src="assets/menu_icon.svg" alt="X"></button>
         </div>
-        <a href="#" class="home active">home</a>
-        <a href="#" class="contact">contact</a>
-        <a href="#" class="FAQ">FAQ</a>
-        <a href="#" class="courses">courses</a>
-        <a href="#" class="testimonials">testimonials</a>
+        <div class="nav-content" id="navContent">
+            <a href="index.html" class="home active">Home</a>
+            <a href="contact.html" class="contact">Contact</a>
+            <a href="#" class="FAQ">FAQ</a>
+            <a href="#" class="courses">Courses</a>
+            <a href="#" class="testimonials">Testimonials</a>
+        </div>
     </nav>
 
     <div class="wrapper">
@@ -53,7 +56,7 @@
 
             <div class="quote q4">
                 <blockquote>
-                    <p>If you're serious about staying undercover, I might know someone who can help you with your English. A discreet <a href="#">contact</a>.</p>
+                    <p>If you're serious about staying undercover, I might know someone who can help you with your English. A discreet <a href="contact.html">contact</a>.</p>
                 </blockquote>
             </div>
 
@@ -121,6 +124,7 @@
 
 </body>
 
+<script src="scripts/openMenu.js"></script>
 <script>
     const scrollContainer = document.querySelector(".wrapper");
 

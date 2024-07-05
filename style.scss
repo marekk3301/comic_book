@@ -11,37 +11,55 @@ body {
 
 nav {
     background: $black;
-    padding-left: $wrapper-margin;
+    padding-left: 0; //mobile
     position: fixed;
-    display: flex;
     width: 100%;
-    bottom: 0;
-    transform-origin: top left;
-    transform: rotate(-90deg) translateX(-45px);
-    a {
-        padding: $nav-padding 20px;
-        color: $white;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
+    top: 0; //mobile
+    z-index: 15;
+    .nav-top {
+        display: flex; //mobile
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        button{
+            height: 30px;
+            width: 30px;
+            border: none;
+            background-color: transparent;
+            img {
+                height: 30px;
+            }
+        }
     }
-    .active,
-    a:hover {
-        color: $black;
-        background: $white;
+    .nav-content {
+        display: none; //mobile
+        flex-direction: column; //mobile
+        width: 100%;
+        a {
+            padding: 20px; //mobile
+            color: $white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            text-align: center;
+        }
+        .active,
+        a:hover {
+            color: $black;
+            background: $white;
+        }
     }
 }
 
 .wrapper {
     display: flex;
+    flex-direction: column;
     gap: 20px;
-    overflow-x: auto;
-    overflow-y: hidden;
+    // overflow-x: auto; //desktop
+    // overflow-y: hidden; //desktop
     height: $wrapper-height;
-    margin-top: $wrapper-margin;
-    margin-left: 2*$nav-width;
-    margin-right: $nav-width;
+    margin: 60px $margin-mobile;
     &::-webkit-scrollbar {
         margin: $nav-width;
         height: 6px;
@@ -61,7 +79,8 @@ nav {
         display: flex;
         gap: 20px;
         flex-direction: column;
-        height: 95%;
+        width: 100%;
+        height: 100%;
         .full {
             height: 100%;
         }
@@ -73,25 +92,16 @@ nav {
             border: #f0f0f0 3px solid;
         }
     }
-    .p1,
-    .p3,
-    .p5 {
-        align-self: flex-end;
-        margin-bottom: 6px;
-    }
-    .p1 {
-        transform: translateY(-26px);
-    }
     .p6 {
-        margin-right: 20px;
+        padding-bottom: 20px;
     }
     .quote {
         position: absolute;
         blockquote {
-            @include speech_bubbles_text;
+            @include speech_bubbles_text-mobile;
             background: $white;
             text-align: center;
-            border-radius: 20px;
+            border-radius: 15px;
             &:after {
                 content: "";
                 position: absolute;
@@ -103,9 +113,8 @@ nav {
     .caption {
         position: absolute;
         overflow: hidden;
-        max-width: 60%;
+        width: 100%;
         z-index: 5;
-        padding-right: 30px;
         .caption__background {
             position: absolute;
             top: 0;
@@ -113,12 +122,9 @@ nav {
             width: 100%;
             height: 100%;
             background-color: $white;
-            transform: skewX(-20deg);
-            transform-origin: top;
-            z-index: -1;
         }
         .caption__content {
-            @include speech_bubbles_text;
+            @include speech_bubbles_text-mobile;
         }
     }
     p {
@@ -130,104 +136,303 @@ nav {
         }
     }
     .q1 {
-        top: 30px;
-        right: 30px;
+        top: 10px;
+        right: 10px;
         blockquote:after {
             transform: skewX(-15deg);
-            border-width: 30px 30px 0 0;
+            border-width: 20px 20px 0 0;
             top: 100%;
-            left: 50px;
-        }
-    }
-    .q2 {
-        bottom: 30px;
-        right: 30px;
-        max-width: 200px;
-        blockquote:after {
-            transform: skewX(15deg);
-            border-width: 0 30px 30px 0;
-            top: -30px;
-            left: 50px;
-        }
-    }
-    .q3 {
-        top: 20%;
-        left: 40%;
-        max-width: 200px;
-        transform: translateX(-50%);
-        blockquote:after {
-            transform: skewX(-15deg);
-            border-width: 30px 30px 0 0;
-            top: 100%;
-            left: 50px;
-        }
-    }
-    .q4 {
-        bottom: 10%;
-        right: 40%;
-        max-width: 200px;
-        transform: translateX(50%);
-        blockquote:after {
-            transform: skewX(-15deg);
-            border-width: 0 0 30px 30px;
-            top: -30px;
-            right: 50%;
-        }
-    }
-    .q5 {
-        bottom: 40%;
-        left: 30%;
-        max-width: 200px;
-        transform: translate(-50%, 50%);
-        blockquote:after {
-            transform: skewX(-15deg);
-            border-width: 0 0 30px 30px;
-            top: -30px;
             right: 50px;
         }
     }
-    .q6 {
-        bottom: 20%;
-        left: 40%;
+    .q2 {
+        bottom: 10px;
+        right: 10px;
         max-width: 200px;
-        transform: translateX(-50%);
+        blockquote:after {
+            transform: skewX(15deg);
+            border-width: 0 20px 20px 0;
+            top: -20px;
+            right: 50px;
+        }
+    }
+    .q3 {
+        top: 10px;
+        left: 10px;
+        max-width: 200px;
         blockquote:after {
             transform: skewX(-15deg);
-            border-width: 0 0 30px 30px;
-            top: -30px;
+            border-width: 20px 20px 0 0;
+            top: 100%;
+            right: 50px;
+        }
+    }
+    .q4 {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        blockquote:after {
+            transform: skewX(15deg);
+            border-width: 0 20px 20px 0;
+            top: -20px;
+            right: 50px;
+        }
+    }
+    .q5 {
+        bottom: 10px;
+        left: 10px;
+        max-width: 200px;
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 0 0 20px 20px;
+            top: -20px;
+            left: 50px;
+        }
+    }
+    .q6 {
+        bottom: 10px;
+        left: 10px;
+        max-width: 200px;
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 0 0 20px 20px;
+            top: -20px;
             left: 50px;
         }
     }
     .q7 {
-        top: 30px;
-        left: 30px;
-        max-width: 80%;
+        bottom: 55%;
+        left: 10px;
+        font-size: small;
+        max-width: 50%;
         blockquote:after {
-            transform: skewX(15deg);
-            border-width: 30px 0 0 30px;
-            top: 100%;
+            transform: skewX(-15deg);
+            border-width: 0 0 20px 20px;
+            top: -20px;
             left: 50px;
         }
     }
     .q8 {
         bottom: 30px;
-        left: 50%;
+        right: 10px;
+        font-size: small;
         width: 80%;
-        transform: translateX(-50%);
         blockquote:after {
-            transform: skewX(-15deg);
-            border-width: 0 0 30px 30px;
-            top: -30px;
-            left: 50px;
+            transform: skewX(15deg);
+            border-width: 0 20px 20px 0;
+            top: -20px;
+            right: 50px;
         }
     }
 }
 
 .shadow {
-    position: absolute;
-    height: 100%;
-    width: 45px;
-    top: 0;
-    right: 0;
-    box-shadow: -10px 0px 9px 3px rgba(15, 15, 15, 1);
+    display: none;
+}
+
+@media (min-width: 768px) {
+    nav {
+        padding-left: $wrapper-margin; //desktop
+        top: auto;
+        bottom: 0; //desktop
+        transform-origin: top left;
+        transform: rotate(-90deg) translateX(-45px); //desktop
+        .nav-top {
+            display: none;
+        }
+        .nav-content {
+            display: flex;
+            flex-direction: row; //desktop
+            a {
+                padding: $nav-padding 20px; //desktop
+            }
+        }
+    }
+    .wrapper {
+        flex-direction: row; //desktop
+        overflow-x: auto; //desktop
+        overflow-y: hidden; //desktop
+        margin: $wrapper-margin $nav-width 0 2*$nav-width; //desktop
+        .page {
+            height: 95%; //desktop
+        }
+        .p1,
+        .p3,
+        .p5 {
+            align-self: flex-end; //desktop
+            margin-bottom: 6px; //desktop
+        }
+        .p1 {
+            transform: translateY(-26px); //desktop
+        }
+        .p6 {
+            padding-bottom: 0;
+            margin-right: 20px; //desktop
+        }
+        .quote {
+            border-radius: 20px; //desktop
+            blockquote {
+                @include speech_bubbles_text; //desktop
+            }
+        }
+        .caption {
+            width: auto;
+            max-width: 60%; //desktop
+            padding-right: 30px;
+            .caption__background {
+                transform: skewX(-20deg); //desktop
+                transform-origin: top; //desktop
+                z-index: -1; //desktop
+            }
+            .caption__content {
+                @include speech_bubbles_text; //desktop
+            }
+        }
+        .q1 {
+            top: 30px; //desktop
+            right: 30px; //desktop
+            blockquote:after {
+                transform: skewX(-15deg);
+                border-width: 30px 30px 0 0; //desktop
+                top: 100%;
+                right: auto;
+                left: 50px;
+            }
+        }
+        .q2 {
+            bottom: 30px; //desktop
+            right: 30px; //desktop
+            max-width: 200px;
+            blockquote:after {
+                transform: skewX(15deg);
+                border-width: 0 30px 30px 0; //desktop
+                top: -30px; //desktop
+                right: auto;
+                left: 50px;
+            }
+        }
+        .q3 {
+            top: 20%;
+            left: 40%;
+            max-width: 200px;
+            transform: translateX(-50%);
+            blockquote:after {
+                transform: skewX(-15deg);
+                border-width: 30px 30px 0 0;
+                top: 100%;
+                right: auto;
+                left: 50px;
+            }
+        }
+        .q4 {
+            left: auto;
+            right: 40%;
+            bottom: 10%;
+            max-width: 200px;
+            transform: translateX(50%);
+            blockquote:after {
+                transform: skewX(-15deg);
+                border-width: 0 0 30px 30px;
+                top: -30px;
+                right: 50%;
+            }
+        }
+        .q5 {
+            bottom: 40%;
+            left: 30%;
+            max-width: 200px;
+            transform: translate(-50%, 50%);
+            blockquote:after {
+                transform: skewX(-15deg);
+                border-width: 0 0 30px 30px;
+                top: -30px;
+                left: auto;
+                right: 50px;
+            }
+        }
+        .q6 {
+            bottom: 20%;
+            left: 40%;
+            max-width: 200px;
+            transform: translateX(-50%);
+            blockquote:after {
+                transform: skewX(-15deg);
+                border-width: 0 0 30px 30px;
+                top: -30px;
+                left: 50px;
+            }
+        }
+        .q7 {
+            top: 30px;
+            bottom: auto;
+            left: 30px;
+            font-size: medium;
+            max-width: 80%;
+            blockquote:after {
+                transform: skewX(15deg);
+                border-width: 30px 0 0 30px;
+                top: 100%;
+                left: 50px;
+            }
+        }
+        .q8 {
+            bottom: 30px;
+            right: auto;
+            left: 50%;
+            font-size: medium;
+            width: 80%;
+            transform: translateX(-50%);
+            blockquote:after {
+                transform: skewX(-15deg);
+                border-width: 0 0 30px 30px;
+                top: -30px;
+                right: auto;
+                left: 50px;
+            }
+        }
+    }
+    .shadow { //desktop
+        position: absolute;
+        height: 100%;
+        width: 45px;
+        top: 0;
+        right: 0;
+        box-shadow: -10px 0px 9px 3px rgba(15, 15, 15, 1);
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: $white;
+    margin: $margin-mobile ;
+    margin-top: 60px;
+    height: 90vh;
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // text-align: center;
+        height: 100%;
+        margin-top: 50px;
+    }
+
+    .image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // position: absolute;
+        clip-path: polygon(0 25%, 100% 5%, 100% 100%, 0% 100%);
+        // clip-path: polygon(0 0, 100% 20%, 100% 100%, 0% 100%);
+        bottom: 0;
+        max-height: 60%;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
 }

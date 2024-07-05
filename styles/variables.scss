@@ -5,6 +5,7 @@ $white: #f0f0f0;
 $black: #0f0f0f;
 $red: #DD2222;
 // MEASUREMENTS
+// $nav-width: 45px;
 $nav-width: 45px;
 $margin-mobile: 20px;
 // $nav-padding: ($nav-width - 19) / 2;
@@ -34,7 +35,6 @@ $speech-border-mobile: 20px;
     font-weight: 700;
 }
 
-// @media (max-width: 768px) {
-//     $nav-width: 20px;
-//     $nav-padding: 20px;
-// }
+@media (max-width: 768px) {
+    $nav-width: 60px;
+}

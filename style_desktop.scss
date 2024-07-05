@@ -1,0 +1,255 @@
+@import 'styles/variables.scss';
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+body {
+    background: $black;
+}
+
+nav {
+    background: $black;
+    padding-left: $wrapper-margin; //desktop
+    position: fixed;
+    width: 100%;
+    top: auto; //mobile
+    bottom: 0; //desktop
+    transform-origin: top left;
+    transform: rotate(-90deg) translateX(-45px); //desktop
+    z-index: 15;
+    .nav-top {
+        display: none; //desktop
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        button{
+            height: 30px;
+            width: 30px;
+            border: none;
+            background-color: transparent;
+            img {
+                height: 30px;
+            }
+        }
+    }
+    .nav-content {
+        display: flex; //desktop
+        flex-direction: row; //desktop
+        width: 100%;
+        a {
+            padding: $nav-padding 20px; //desktop
+            color: $white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            text-align: center;
+        }
+        .active,
+        a:hover {
+            color: $black;
+            background: $white;
+        }
+    }
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: row; //desktop
+    gap: 20px;
+    overflow-x: auto; //desktop
+    overflow-y: hidden; //desktop
+    height: $wrapper-height;
+    margin: $wrapper-margin $nav-width 0 2*$nav-width; //desktop
+    &::-webkit-scrollbar {
+        margin: $nav-width;
+        height: 6px;
+        background-color: $black;
+        z-index: 10;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: 3px;
+        background-color: $black;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 3px;
+        background-color: lighten($black, 30%);
+    }
+    .page {
+        position: relative;
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        width: 100%;
+        height: 95%; //desktop
+        .full {
+            height: 100%;
+        }
+        .top,
+        .bottom {
+            height: 50%;
+        }
+        img {
+            border: #f0f0f0 3px solid;
+        }
+    }
+    .p1,
+    .p3,
+    .p5 {
+        align-self: flex-end; //desktop
+        margin-bottom: 6px; //desktop
+    }
+    .p1 {
+        transform: translateY(-26px); //desktop
+    }
+    .p6 {
+        margin-right: 20px; //desktop
+    }
+    .quote {
+        position: absolute;
+        blockquote {
+            @include speech_bubbles_text; //desktop
+            background: $white;
+            text-align: center;
+            border-radius: 20px; //desktop
+            &:after {
+                content: "";
+                position: absolute;
+                border-style: solid;
+                border-color: $white transparent;
+            }
+        }
+    }
+    .caption {
+        position: absolute;
+        overflow: hidden;
+        max-width: 60%; //desktop
+        z-index: 5;
+        padding-right: 30px;
+        .caption__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $white;
+            transform: skewX(-20deg); //desktop
+            transform-origin: top; //desktop
+            z-index: -1; //desktop
+        }
+        .caption__content {
+            @include speech_bubbles_text; //desktop
+        }
+    }
+    p {
+        margin: 0;
+        padding: 0;
+        a {
+            color: $red;
+            text-decoration: none;
+        }
+    }
+    .q1 {
+        top: 30px; //desktop
+        right: 30px; //desktop
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 30px 30px 0 0; //desktop
+            top: 100%;
+            left: 50px;
+        }
+    }
+    .q2 {
+        bottom: 30px; //desktop
+        right: 30px; //desktop
+        max-width: 200px;
+        blockquote:after {
+            transform: skewX(15deg);
+            border-width: 0 30px 30px 0; //desktop
+            top: -30px; //desktop
+            left: 50px;
+        }
+    }
+    .q3 {
+        top: 20%;
+        left: 40%;
+        max-width: 200px;
+        transform: translateX(-50%);
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 30px 30px 0 0;
+            top: 100%;
+            left: 50px;
+        }
+    }
+    .q4 {
+        bottom: 10%;
+        right: 40%;
+        max-width: 200px;
+        transform: translateX(50%);
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 0 0 30px 30px;
+            top: -30px;
+            right: 50%;
+        }
+    }
+    .q5 {
+        bottom: 40%;
+        left: 30%;
+        max-width: 200px;
+        transform: translate(-50%, 50%);
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 0 0 30px 30px;
+            top: -30px;
+            right: 50px;
+        }
+    }
+    .q6 {
+        bottom: 20%;
+        left: 40%;
+        max-width: 200px;
+        transform: translateX(-50%);
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 0 0 30px 30px;
+            top: -30px;
+            left: 50px;
+        }
+    }
+    .q7 {
+        top: 30px;
+        left: 30px;
+        max-width: 80%;
+        blockquote:after {
+            transform: skewX(15deg);
+            border-width: 30px 0 0 30px;
+            top: 100%;
+            left: 50px;
+        }
+    }
+    .q8 {
+        bottom: 30px;
+        left: 50%;
+        width: 80%;
+        transform: translateX(-50%);
+        blockquote:after {
+            transform: skewX(-15deg);
+            border-width: 0 0 30px 30px;
+            top: -30px;
+            left: 50px;
+        }
+    }
+}
+
+.shadow { //desktop
+    position: absolute;
+    height: 100%;
+    width: 45px;
+    top: 0;
+    right: 0;
+    box-shadow: -10px 0px 9px 3px rgba(15, 15, 15, 1);
+}
