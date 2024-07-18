@@ -21,13 +21,13 @@
         <div class="nav-content" id="navContent">
             <a href="/" class="home active">Home</a>
             <a href="contact.html" class="contact">Contact</a>
-            <a href="#" class="FAQ">FAQ</a>
+            <a href="#" class="FAQ">About Us</a>
             <a href="#" class="courses">Courses</a>
             <a href="#" class="testimonials">Testimonials</a>
         </div>
     </nav>
 
-    <div class="wrapper">
+    <div class="wrapper" id="wrapper">
 
         <div class="page p1">
             <div class="quote q1">
@@ -56,9 +56,9 @@
             </div>
 
             <div class="quote q4">
-                <blockquote>
-                    <p>If you're serious about staying undercover, I might know someone who can help you with your English. A discreet <a href="contact.html">contact</a>.</p>
-                </blockquote>
+                <a href="contact.html"><blockquote>
+                    <p>If you're serious about staying undercover, I might know someone who can help you with your English. A discreet <span>contact</span>.</p>
+                </blockquote></a>
             </div>
 
             <img src="assets/panels/panel3.png" alt="panel 3" class="full">
@@ -67,9 +67,10 @@
         <div class="page p3">
 
             <div class="quote q5">
+                <a href="#">
                 <blockquote>
-                    <p>I have some <a href="#">questions</a>...</p>
-                </blockquote>
+                    <p>I have some <span>questions</span>...</p>
+                </blockquote></a>
             </div>
 
             <img src="assets/panels/panel4.png" alt="panel 4" class="full">
@@ -89,12 +90,12 @@
         <div class="page p5">
 
             <div class="caption">
-                <div class="caption__background"></div>
+                <a href=""><div class="caption__background"></div>
                 <div class="caption__content">
                     <blockquote>
-                        <p> In the dim glow of the desk lamp, the secret agent pours over his <a href="#">English Courses</a>, determined to master the language of intrigue.</p>
+                        <p> In the dim glow of the desk lamp, the secret agent pours over his <span>English Courses</span>, determined to master the language of intrigue.</p>
                     </blockquote>
-                </div>
+                </div></a>
             </div>
 
             <img src="assets/panels/panel6.png" alt="panel 6" class="full">
@@ -121,11 +122,12 @@
 
     </div>
 
-    <div class="shadow"></div>
+    <div class="arrow" id="arrow"><img src="assets/arrow_forward.png" alt="more"></div>
 
 </body>
 
 <script src="scripts/openMenu.js"></script>
+<script src="scripts/autoScroll.js"></script>
 <script>
     const scrollContainer = document.querySelector(".wrapper");
 

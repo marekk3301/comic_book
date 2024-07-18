@@ -9,12 +9,17 @@ body {
     background: $black;
 }
 
+a:-webkit-any-link {
+    text-decoration: none;
+}
+
 .logo {
     height: 30px;
     position: absolute;
     top: 10px;
     left: 20px;
     z-index: 20;
+    position: fixed;
 }
 
 nav {
@@ -27,7 +32,7 @@ nav {
     .nav-top {
         display: flex; //mobile
         align-items: center;
-        justify-content: space-between;
+        justify-content: flex-end;
         padding: 15px;
         button{
             height: 30px;
@@ -99,12 +104,16 @@ nav {
         img {
             border: #f0f0f0 3px solid;
         }
+        
     }
     .p6 {
         padding-bottom: 20px;
     }
     .quote {
         position: absolute;
+        a {
+            text-decoration: none;
+        }
         blockquote {
             @include speech_bubbles_text-mobile;
             background: $white;
@@ -138,9 +147,8 @@ nav {
     p {
         margin: 0;
         padding: 0;
-        a {
+        span {
             color: $red;
-            text-decoration: none;
         }
     }
     .q1 {
@@ -238,6 +246,10 @@ nav {
     display: none;
 }
 
+.arrow {
+    display: none;
+}
+
 
 .content {
     display: flex;
@@ -313,7 +325,8 @@ nav {
         flex-direction: row; //desktop
         overflow-x: auto; //desktop
         overflow-y: hidden; //desktop
-        margin: $wrapper-margin $nav-width 0 2*$nav-width; //desktop
+        // margin: $wrapper-margin $nav-width 0 2*$nav-width;
+        margin: 70px $nav-width 0 2*$nav-width; //desktop
         .page {
             height: 95%; //desktop
         }
@@ -452,13 +465,17 @@ nav {
             }
         }
     }
-    .shadow { //desktop
+    .arrow {
+        display: block;
         position: absolute;
-        height: 100%;
-        width: 45px;
-        top: 0;
-        right: 0;
-        box-shadow: -10px 0px 9px 3px rgba(15, 15, 15, 1);
+        right: 4px;
+        top: 50%;
+        transform: translateY(-50%);
+        img {
+            width: 35px;
+            height: 60px;
+        }
+
     }
 
     .content {
